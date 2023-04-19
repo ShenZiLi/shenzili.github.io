@@ -2,12 +2,7 @@
 <rss version="2.0">
     <channel>
         <title>SZL-Note</title>
-        <subtitle></subtitle>
-        <icon>https://shenzili.github.io/images/favicon.ico</icon>
         <link>https://shenzili.github.io</link>
-        <author>
-          <name>ShenZiLi</name>
-        </author>
         <description></description>
         <language>zh-CN</language>
         <pubDate>Wed, 19 Apr 2023 11:25:38 +0800</pubDate>

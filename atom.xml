@@ -2,12 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://shenzili.github.io</id>
     <title>SZL-Note</title>
-    <subtitle></subtitle>
-    <icon>https://shenzili.github.io/images/favicon.ico</icon>
     <link href="https://shenzili.github.io" />
-    <author>
-      <name>ShenZiLi</name>
-    </author>
     <updated>2023-04-19T03:25:38.000Z</updated>
     <entry>
         <id>https://shenzili.github.io/test-1/</id>

@@ -354,7 +354,7 @@ pre,
 }
 pre,
 code {
-  font-family: "Ubuntu Mono", Courier, monospace;
+  font-family: "Ubuntu Mono", "MiSans", Courier, monospace;
 }
 pre.mermaid {
   background-color: var(--background-color);
@@ -388,7 +388,6 @@ pre code {
   padding-bottom: 5px;
   overflow: auto;
   margin: 0 !important;
-  border-top: 1px solid var(--shadow-color-1);
 }
 .highlight:hover::-webkit-scrollbar-thumb {
   border: 3px solid rgba(183,183,183,0.3);

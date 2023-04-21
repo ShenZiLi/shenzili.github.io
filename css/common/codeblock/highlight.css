@@ -354,7 +354,7 @@ pre,
 }
 pre,
 code {
-  font-family: "Ubuntu Mono", "MiSans", Courier, monospace;
+  font-family: "Ubuntu Mono", 'Open Sans', 'Noto Sans', Courier, monospace;
 }
 pre.mermaid {
   background-color: var(--background-color);

@@ -5,9 +5,105 @@
         <link>https://shenzili.github.io</link>
         <description>记录学习过程</description>
         <language>zh-CN</language>
-        <pubDate>Thu, 20 Apr 2023 00:00:00 +0800</pubDate>
-        <lastBuildDate>Thu, 20 Apr 2023 00:00:00 +0800</lastBuildDate>
+        <pubDate>Tue, 25 Apr 2023 14:27:38 +0800</pubDate>
+        <lastBuildDate>Tue, 25 Apr 2023 14:27:38 +0800</lastBuildDate>
         <category>Other</category>
+        <item>
+            <guid isPermalink="true">https://shenzili.github.io/macInstallSD/</guid>
+            <title>mac安装AI绘画</title>
+            <link>https://shenzili.github.io/macInstallSD/</link>
+            <category>Other</category>
+            <pubDate>Tue, 25 Apr 2023 14:27:38 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;说明&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#说明&#34;&gt;#&lt;/a&gt; 说明&lt;/h1&gt;
+&lt;p&gt;本教程为安装 macOS 端 AI 绘画（Stable Diffusion WebUI），无需科学上网&lt;/p&gt;
+&lt;p&gt;AI 绘画 Stable Diffusion WebUI 在 windows 端可以通过整合包的方式进行部署，但在 macOS 缺少相关资源。有许多同学没有编程基础，卡在&lt;strong&gt; Install gfpgan&lt;/strong&gt; 反复尝试无果，本教程是为帮助在 Mac 上安装 SD 遇到困难的同学们。&lt;/p&gt;
+&lt;h2 id=&#34;安装&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#安装&#34;&gt;#&lt;/a&gt; 安装&lt;/h2&gt;
+&lt;h3 id=&#34;环境配置&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#环境配置&#34;&gt;#&lt;/a&gt; 环境配置&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;下载安装 Git&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Git 是代码版本控制工具，此处用于克隆 GitHub 代码仓库中的 Web UI 以及相关插件依赖。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;在&lt;strong&gt;终端&lt;/strong&gt;复制以下命令并回车，可检测当前电脑有没有安装 git。如果已经存在 git，则输出 Git 版本号，否则请下载安装 git，通常耗时 5 分钟。&lt;/p&gt;
+&lt;div class=&#34;highlight-container&#34; data-rel=&#34;Shell&#34;&gt;&lt;figure class=&#34;iseeu highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;git --version&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/div&gt;
+&lt;p&gt;点击链接&lt;a class=&#34;link&#34;   href=&#34;https://sourceforge.net/projects/git-osx-installer/files/latest/download&#34; &gt; Git MacOS &lt;i class=&#34;fa-regular fa-arrow-up-right-from-square fa-sm&#34;&gt;&lt;/i&gt;&lt;/a&gt;，浏览器下载。下载完成后请自行安装。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;安装 Homebrew&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Homebrew 是 MacOS 的包管理工具，此处用于安装 Python 环境。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;在&lt;strong&gt;终端&lt;/strong&gt;复制以下命令并回车，此处使用托管于国内 Gitee 仓库的 Homebrew，通常耗时 10-20 分钟。&lt;/p&gt;
+&lt;div class=&#34;highlight-container&#34; data-rel=&#34;Shell&#34;&gt;&lt;figure class=&#34;iseeu highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;/bin/zsh -c &amp;quot;$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/div&gt;
+&lt;p&gt;镜像源可选择&lt;strong&gt; 1 中科大&lt;/strong&gt;，如安装过程中下载过慢（&amp;lt;100Kb/s）或报错可使用&lt;strong&gt; Command+C&lt;/strong&gt; 打断，并重新执行上述命令或选择其他镜像源（有时候重复两三次即可安装成功）。&lt;/p&gt;
+&lt;p&gt;安装完成后，退出终端并重新打开（仅安装 Homebrew 后需要重启终端，后续无需重启）。执行查看 Homebrew 版本&lt;/p&gt;
+&lt;div class=&#34;highlight-container&#34; data-rel=&#34;Shell&#34;&gt;&lt;figure class=&#34;iseeu highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;brew -v&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/div&gt;
+&lt;p&gt;如有异常信息，则复制提示的两句 git 命令并执行。然后再次&lt;strong&gt; brew -v&lt;/strong&gt; 检查是否异常。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;安装 Python 等环境&lt;/p&gt;
+&lt;p&gt;使用刚安装好的 Homebrew 命令安装 python 等环境，通常耗时 10-20 分钟。&lt;/p&gt;
+&lt;div class=&#34;highlight-container&#34; data-rel=&#34;Shell&#34;&gt;&lt;figure class=&#34;iseeu highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;brew install cmake protobuf rust python@3.10 git wget&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;安装（克隆）WebUI&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Stable Diffusion 是稳定扩散模型，是 AI 绘画的核心。通常 checkpoint 模型都是基于 SD 1.5 版本模型训练而成，SD 2.0 开始官方加入了和谐补丁，所以从这方面来说 AI 绘画并不是版本越新越好。&lt;/p&gt;
+&lt;p&gt;Stable Diffusion WebUI 是通过浏览器运行的可视化页面，降低了原先通过命令行使用 SD 的门槛。但更新 WebUI 和插件，往往会导致各种 Bug，依旧建议版本不是越新越好，而是越稳定越好。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;以下方式二选一&lt;/p&gt;
+&lt;p&gt;由于后续启动 WebUI 会下载 checkpoint 模型，速度过慢，所以需要提前下载大模型并放置到正确位置，脚本检测到已有大模型时，跳过下载。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;克隆 webUI，并下载随意一个 checkpoint 模型&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight-container&#34; data-rel=&#34;Shell&#34;&gt;&lt;figure class=&#34;iseeu highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/div&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;下载我提前打好的包，减少踩坑&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34;   href=&#34;https://www.123pan.com/s/ssl7Vv-eBzJ.html&#34; &gt;123 网盘 SD + 模型打包 &lt;i class=&#34;fa-regular fa-arrow-up-right-from-square fa-sm&#34;&gt;&lt;/i&gt;&lt;/a&gt;提取码:vivi，使用迅雷可满速下载，浏览器较慢。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;启动 WebUI【重要】&lt;/p&gt;
+&lt;p&gt;首次启动会下载依赖，一般都卡在这里。卡住的原因是由于很多依赖都是从 Github 上下载，国外地址速度过慢会导致报错。所以我们可以使用镜像源或直接采用国内 Gitee 上托管的代码。为此，你需要修改两个文件。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a class=&#34;link&#34;   href=&#34;http://xn--webui-macos-env-gm6xp4jn50kmhb.sh&#34; &gt;修改文件 webui-macos-env.sh &lt;i class=&#34;fa-regular fa-arrow-up-right-from-square fa-sm&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;安装 torch，添加镜像源，注意空格&lt;/p&gt;
+&lt;div class=&#34;highlight-container&#34; data-rel=&#34;Shell&#34;&gt;&lt;figure class=&#34;iseeu highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;export TORCH_COMMAND=&amp;quot;pip install torch==1.12.1 torchvision==0.13.1 -i https://pypi.douban.com/simple/&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/div&gt;
+&lt;img  
+                     lazyload
+                     src=&#34;/images/loading.svg&#34;
+                     data-src=&#34;/macInstallSD/image-20230425154531602.png&#34;
+                      class=&#34;&#34; title=&#34;image-20230425154531602&#34;
+                &gt;
+&lt;p&gt;&lt;strong&gt;&lt;a class=&#34;link&#34;   href=&#34;http://xn--launch-h18i79dyz0gkwa.py&#34; &gt;修改文件 launch.py &lt;i class=&#34;fa-regular fa-arrow-up-right-from-square fa-sm&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;pip 安装添加镜像源&lt;/p&gt;
+&lt;div class=&#34;highlight-container&#34; data-rel=&#34;Shell&#34;&gt;&lt;figure class=&#34;iseeu highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;return run(f&amp;#x27;&amp;quot;&amp;#123;python&amp;#125;&amp;quot; -m pip &amp;#123;args&amp;#125; -i https://pypi.douban.com/simple/ --prefer-binary&amp;#123;index_url_line&amp;#125;&amp;#x27;, desc=f&amp;quot;Installing &amp;#123;desc&amp;#125;&amp;quot;, errdesc=f&amp;quot;Couldn&amp;#x27;t install &amp;#123;desc&amp;#125;&amp;quot;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/div&gt;
+&lt;img  
+                     lazyload
+                     src=&#34;/images/loading.svg&#34;
+                     data-src=&#34;/macInstallSD/2023-04-25_15-50-34.png&#34;
+                      class=&#34;&#34; title=&#34;2023-04-25_15-50-34&#34;
+                &gt;
+&lt;p&gt;&lt;strong&gt;替换为 Gitee 代码仓库地址&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight-container&#34; data-rel=&#34;Python&#34;&gt;&lt;figure class=&#34;iseeu highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;gfpgan_package = os.environ.get(&lt;span class=&#34;string&#34;&gt;&amp;#x27;GFPGAN_PACKAGE&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;string&#34;&gt;&amp;quot;git+https://gitee.com/zdevt/GFPGAN.git&amp;quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;clip_package = os.environ.get(&lt;span class=&#34;string&#34;&gt;&amp;#x27;CLIP_PACKAGE&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;string&#34;&gt;&amp;quot;git+https://gitee.com/zdevt/CLIP.git&amp;quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;openclip_package = os.environ.get(&lt;span class=&#34;string&#34;&gt;&amp;#x27;OPENCLIP_PACKAGE&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;string&#34;&gt;&amp;quot;git+https://gitee.com/zdevt/open_clip.git&amp;quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/div&gt;
+&lt;img  
+                     lazyload
+                     src=&#34;/images/loading.svg&#34;
+                     data-src=&#34;/macInstallSD/2023-04-25_15-53-34.png&#34;
+                      class=&#34;&#34; title=&#34;2023-04-25_15-53-34&#34;
+                &gt;
+&lt;p&gt;&lt;strong&gt;打开终端，启动 WebUI&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;在 WebUI 文件夹右键启动终端，也可在终端中通过 cd 命令进入到该文件夹。输入命令回车启动，后续启动 AI 绘画都要通过这个方式。&lt;/p&gt;
+&lt;div class=&#34;highlight-container&#34; data-rel=&#34;Shell&#34;&gt;&lt;figure class=&#34;iseeu highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;./webui.sh&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/div&gt;
+&lt;p&gt;等待安装，由于依旧修改为国内地址并添加了镜像源，通常需要 10 分钟。&lt;/p&gt;
+&lt;p&gt;如果异常可再次 **./webui.sh** 启动，尝试两三次依旧失败请贴图寻求帮助。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;启动成功&lt;/strong&gt;，终端会打印访问地址，点击跳转浏览器即可使用&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">https://shenzili.github.io/Introduce/</guid>
             <title>Introduce</title>
@@ -23,7 +119,7 @@
 &lt;img  
                      lazyload
                      src=&#34;/images/loading.svg&#34;
-                     data-src=&#34;/Introduce/image-20230420084058218.png&#34;
+                     data-src=&#34;/Introduce/1.png&#34;
                       class=&#34;&#34; title=&#34;image-20230420084058218&#34;
                 &gt;
 &lt;h3 id=&#34;代码高亮测试&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#代码高亮测试&#34;&gt;#&lt;/a&gt; 代码高亮测试&lt;/h3&gt;

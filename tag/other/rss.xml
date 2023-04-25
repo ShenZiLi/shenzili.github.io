@@ -56,55 +56,41 @@
 &lt;p&gt;&lt;a class=&#34;link&#34;   href=&#34;https://www.123pan.com/s/ssl7Vv-eBzJ.html&#34; &gt;123 网盘 SD + 模型打包 &lt;i class=&#34;fa-regular fa-arrow-up-right-from-square fa-sm&#34;&gt;&lt;/i&gt;&lt;/a&gt;提取码:vivi，使用迅雷可满速下载，浏览器较慢。&lt;/p&gt;
 &lt;h1 id=&#34;启动重要&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#启动重要&#34;&gt;#&lt;/a&gt; 启动【重要】&lt;/h1&gt;
 &lt;p&gt;首次启动会下载依赖，一般都卡在这里。卡住的原因是由于很多依赖都是从 Github 上下载，国外地址速度过慢会导致报错。所以我们可以使用镜像源或直接采用国内 Gitee 上托管的代码。为此，你需要修改两个文件。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34;   href=&#34;http://xn--webui-macos-env-gm6xp4jn50kmhb.sh&#34; &gt;修改文件 webui-macos-env.sh &lt;i class=&#34;fa-regular fa-arrow-up-right-from-square fa-sm&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;
+&lt;h2 id=&#34;修改webui-macos-envsh&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#修改webui-macos-envsh&#34;&gt;#&lt;/a&gt; &lt;a class=&#34;link&#34;   href=&#34;http://xn--webui-macos-env-tu9xw16x.sh&#34; &gt;修改 webui-macos-env.sh &lt;i class=&#34;fa-regular fa-arrow-up-right-from-square fa-sm&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;安装 torch，添加镜像源，注意空格&lt;/p&gt;
- &lt;div class=&#34;highlight-container&#34; data-rel=&#34;Shell&#34;&gt;&lt;figure class=&#34;iseeu highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;export TORCH_COMMAND=&amp;quot;pip install torch==1.12.1 torchvision==0.13.1 -i https://pypi.douban.com/simple/&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/div&gt;
- &lt;img  
+&lt;div class=&#34;highlight-container&#34; data-rel=&#34;Shell&#34;&gt;&lt;figure class=&#34;iseeu highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;export TORCH_COMMAND=&amp;quot;pip install torch==1.12.1 torchvision==0.13.1 -i https://pypi.douban.com/simple/&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/div&gt;
+&lt;img  
                      lazyload
                      src=&#34;/images/loading.svg&#34;
                      data-src=&#34;/macInstallSD/image-20230425154531602.png&#34;
                       class=&#34;&#34; title=&#34;image-20230425154531602&#34;
                 &gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34;   href=&#34;http://xn--launch-h18i79dyz0gkwa.py&#34; &gt;修改文件 launch.py &lt;i class=&#34;fa-regular fa-arrow-up-right-from-square fa-sm&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
+&lt;h2 id=&#34;修改launchpy&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#修改launchpy&#34;&gt;#&lt;/a&gt; &lt;a class=&#34;link&#34;   href=&#34;http://xn--launch-2g0js76l.py&#34; &gt;修改 launch.py &lt;i class=&#34;fa-regular fa-arrow-up-right-from-square fa-sm&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;pip 安装添加镜像源&lt;/p&gt;
- &lt;div class=&#34;highlight-container&#34; data-rel=&#34;Shell&#34;&gt;&lt;figure class=&#34;iseeu highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;return run(f&amp;#x27;&amp;quot;&amp;#123;python&amp;#125;&amp;quot; -m pip &amp;#123;args&amp;#125; -i https://pypi.douban.com/simple/ --prefer-binary&amp;#123;index_url_line&amp;#125;&amp;#x27;, desc=f&amp;quot;Installing &amp;#123;desc&amp;#125;&amp;quot;, errdesc=f&amp;quot;Couldn&amp;#x27;t install &amp;#123;desc&amp;#125;&amp;quot;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/div&gt;
- &lt;img  
+&lt;li&gt;pip 安装添加镜像源&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight-container&#34; data-rel=&#34;Shell&#34;&gt;&lt;figure class=&#34;iseeu highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;return run(f&amp;#x27;&amp;quot;&amp;#123;python&amp;#125;&amp;quot; -m pip &amp;#123;args&amp;#125; -i https://pypi.douban.com/simple/ --prefer-binary&amp;#123;index_url_line&amp;#125;&amp;#x27;, desc=f&amp;quot;Installing &amp;#123;desc&amp;#125;&amp;quot;, errdesc=f&amp;quot;Couldn&amp;#x27;t install &amp;#123;desc&amp;#125;&amp;quot;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/div&gt;
+&lt;img  
                      lazyload
                      src=&#34;/images/loading.svg&#34;
                      data-src=&#34;/macInstallSD/2023-04-25_15-50-34.png&#34;
                       class=&#34;&#34; title=&#34;2023-04-25_15-50-34&#34;
                 &gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;替换为 Gitee 代码仓库地址&lt;/p&gt;
- &lt;div class=&#34;highlight-container&#34; data-rel=&#34;Python&#34;&gt;&lt;figure class=&#34;iseeu highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;gfpgan_package = os.environ.get(&lt;span class=&#34;string&#34;&gt;&amp;#x27;GFPGAN_PACKAGE&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;string&#34;&gt;&amp;quot;git+https://gitee.com/zdevt/GFPGAN.git&amp;quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;clip_package = os.environ.get(&lt;span class=&#34;string&#34;&gt;&amp;#x27;CLIP_PACKAGE&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;string&#34;&gt;&amp;quot;git+https://gitee.com/zdevt/CLIP.git&amp;quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;openclip_package = os.environ.get(&lt;span class=&#34;string&#34;&gt;&amp;#x27;OPENCLIP_PACKAGE&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;string&#34;&gt;&amp;quot;git+https://gitee.com/zdevt/open_clip.git&amp;quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/div&gt;
- &lt;img  
+&lt;ul&gt;
+&lt;li&gt;替换为 Gitee 代码仓库地址&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight-container&#34; data-rel=&#34;Python&#34;&gt;&lt;figure class=&#34;iseeu highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;gfpgan_package = os.environ.get(&lt;span class=&#34;string&#34;&gt;&amp;#x27;GFPGAN_PACKAGE&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;string&#34;&gt;&amp;quot;git+https://gitee.com/zdevt/GFPGAN.git&amp;quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;clip_package = os.environ.get(&lt;span class=&#34;string&#34;&gt;&amp;#x27;CLIP_PACKAGE&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;string&#34;&gt;&amp;quot;git+https://gitee.com/zdevt/CLIP.git&amp;quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;openclip_package = os.environ.get(&lt;span class=&#34;string&#34;&gt;&amp;#x27;OPENCLIP_PACKAGE&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;string&#34;&gt;&amp;quot;git+https://gitee.com/zdevt/open_clip.git&amp;quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/div&gt;
+&lt;img  
                      lazyload
                      src=&#34;/images/loading.svg&#34;
                      data-src=&#34;/macInstallSD/2023-04-25_15-53-34.png&#34;
                       class=&#34;&#34; title=&#34;2023-04-25_15-53-34&#34;
                 &gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;
-&lt;p&gt;打开终端，启动 WebUI&lt;/p&gt;
+&lt;h2 id=&#34;启动webui&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#启动webui&#34;&gt;#&lt;/a&gt; 启动 WebUI&lt;/h2&gt;
 &lt;p&gt;在 WebUI 文件夹右键启动终端，也可在终端中通过 cd 命令进入到该文件夹。输入命令回车启动，后续启动 AI 绘画都要通过这个方式。&lt;/p&gt;
 &lt;div class=&#34;highlight-container&#34; data-rel=&#34;Shell&#34;&gt;&lt;figure class=&#34;iseeu highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;./webui.sh&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/div&gt;
 &lt;p&gt;等待安装，由于依旧修改为国内地址并添加了镜像源，通常需要 10 分钟。&lt;/p&gt;
 &lt;p&gt;如果异常可再次 **./webui.sh** 启动，尝试两三次依旧失败请贴图寻求帮助。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;启动成功&lt;/p&gt;

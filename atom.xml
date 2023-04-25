@@ -95,6 +95,12 @@
 &lt;p&gt;等待安装，由于依旧修改为国内地址并添加了镜像源，通常需要 10 分钟。&lt;/p&gt;
 &lt;p&gt;如果异常可再次 **./webui.sh** 启动，尝试两三次依旧失败请贴图寻求帮助。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;启动成功&lt;/strong&gt;，终端会打印访问地址，点击跳转浏览器即可使用&lt;/p&gt;
+&lt;img  
+                     lazyload
+                     src=&#34;/images/loading.svg&#34;
+                     data-src=&#34;/macInstallSD/1.jpg&#34;
+                      class=&#34;&#34; width=&#34;1&#34;
+                &gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 </content>
